@@ -1,0 +1,18 @@
+* step 1: 运动目标检测
+[[file:haisi_md.py]]
+#+begin_src bash
+  python haisi_md.py --image_dir=/media/liuyang/WD_BLACK/0618官厅水库/无人机/0618-2/DCIM/100MEDIA/DJI_0706.MP4 --is_video
+#+end_src
+
+* step 2: 交互界面筛选出正确目标
+[[file:opencv_label_tools.py]]
+#+begin_src bash
+  python opencv_label_tools.py --ds_dir ./dataset --target_ds_dir ./dataset_new
+#+end_src
+
+[[file:data/Screenshot from 2024-07-24 09-34-38.png]]
+* step 3: 生成yolo数据集
+[[file:from_roi_ds_to_merge_ds.py]]
+#+begin_src bash
+  python from_roi_ds_to_merge_ds.py --roi_ds_dir ./dataset_new --merged_ds_dir ./merge_dataset
+#+end_src
